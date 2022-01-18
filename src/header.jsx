@@ -6,7 +6,7 @@ function Header(props) {
       {/* <div className="d-flex border border-dark justify-content-center align-items-center mt-2 ml-5"
         style= {{ height: 155 + 'px', width: 700 + 'px' }}> */}
       <div className = "row">
-        <img className="col" src="./images/elevatelogo.jpg" ></img>
+        <img className="col" src={require('./images/elevatelogo.jpg')} ></img>
         <div className ="col mt-1">
           <div className = "row">
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header.jsx';
+import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
@@ -24,7 +24,7 @@ export default class App extends React.Component {
   }
   componentDidMount() {
     this.getProducts();
-    this.getCartItems();
+    // this.getCartItems();
   }
   getCartTotal() {
     var itemsArray = this.state.cart;
@@ -41,14 +41,14 @@ export default class App extends React.Component {
     );
   }
   addToCart(product) {
-    fetch('/api/cart.php', {
+    fetch('./cart.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ 'productId': product.id })
     }).catch(error => console.error('error: ', error));
-    this.getCartItems();
+    // this.getCartItems();
   }
 
   setView(name, params) {
@@ -61,7 +61,13 @@ export default class App extends React.Component {
   }
 
   getProducts() {
-    fetch('/api/products.php')
+    fetch('/api/dummy-products-list.json'
+    , {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
       .then(response => {
         return (
           response.json()
@@ -74,23 +80,29 @@ export default class App extends React.Component {
       });
   }
 
-  getCartItems() {
-    fetch('/api/cart.php')
-      .then(response => {
-        return (
-          response.json()
-        );
-      })
-      .then(cartItems => {
-        this.setState({
-          cart: cartItems
-        });
-      });
-  }
+  // getCartItems() {
+  //   fetch('/api/cart.php'
+  //   ,{
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     }
+  //   })
+  //     .then(response => {
+  //       return (
+  //         response.json()
+  //       );
+  //     })
+  //     .then(cartItems => {
+  //       this.setState({
+  //         cart: cartItems
+  //       });
+  //     });
+  // }
 
   placeOrder(orderDetails) {
     orderDetails['cart'] = this.state.cart;
-    fetch('/api/orders.php', {
+    fetch('./orders.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
