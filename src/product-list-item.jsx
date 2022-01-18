@@ -18,6 +18,8 @@ class ProductListItem extends React.Component {
         <div className="col m-3">
           <div className="card" onClick={this.productClickView} style={{ width: 18 + 'rem' }}>
             {/* <img className="card-img-top" src={this.props.productInfo.images[0]} alt={this.props.productInfo.name} style={{ objectFit: 'contain', height: 18 + 'rem' }}></img> */}
+            <img className="card-img-top" src={this.props.productInfo.image} alt={this.props.productInfo.name} style={{ objectFit: 'contain', height: 18 + 'rem' }}></img>
+
             <div className="card-body">
               <p>{'$' + (this.props.productInfo.price / 100).toFixed(2)}</p>
               <h5 className="card-title">{this.props.productInfo.name}</h5>
