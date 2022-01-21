@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class ProductListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class ProductListItem extends React.Component {
         null
       );
     } else {
+
       return (
         <div className="col m-3">
           <div className="card" onClick={this.productClickView} style={{ width: 18 + 'rem' }}>
