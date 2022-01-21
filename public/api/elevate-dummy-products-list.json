@@ -1,0 +1,9 @@
+[
+  {
+  "id": 1,
+  "name": "Osprey Backpack",
+  "price": 2999,
+  "image": "./images/backpack-1.jpg",
+  "shortDescription": "Space for all your needs without all the weight!"
+}
+]

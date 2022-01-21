@@ -61,7 +61,7 @@ export default class App extends React.Component {
   }
 
   getProducts() {
-    fetch('/api/dummy-products-list.json'
+    fetch('/api/elevate-dummy-products-list.json'
     , {
       headers: {
         'Content-Type': 'application/json',
